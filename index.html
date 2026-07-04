@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Rivaan Interiors | Red Luxe Edition</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@200;300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- GSAP Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+</head>
+<body>
+
+<div class="cursor-dot"></div><div class="cursor-outline"></div>
+<div class="preloader"><div class="loader-text">RIVAAN INTERIORS</div><div class="loader-line"></div></div>
+
+<header>
+    <div class="hover-target" onclick="switchTab('home')">
+        <!-- Fixed: Removed leading slash for relative path compatibility -->
+        <img src="images/logo.png" class="site-logo" alt="Rivaan Interiors" onerror="this.style.display='none'; document.getElementById('text-logo').style.display='block';">
+        <span id="text-logo" class="logo-text" style="display:none; color:var(--gold); font-family:'Playfair Display'; font-size:1.8rem; font-weight:700;">RIVAAN</span>
+    </div>
+    <div style="display:flex; align-items:center;">
+        <nav class="nav-container">
+            <a href="#home" data-tab="home" class="nav-link hover-target" onclick="switchTab('home'); return false;">Home</a>
+            <a href="#about" data-tab="about" class="nav-link hover-target" onclick="switchTab('about'); return false;">About Us</a>
+            <a href="#services" data-tab="services" class="nav-link hover-target" onclick="switchTab('services'); return false;">Expertise</a>
+            <a href="#projects" data-tab="projects" class="nav-link hover-target" onclick="switchTab('projects'); return false;">Portfolio</a>
+            <a href="#calculator" data-tab="calculator" class="nav-link hover-target" onclick="switchTab('calculator'); return false;">Estimate</a>
+            <a href="#contact" data-tab="contact" class="nav-link hover-target" onclick="switchTab('contact'); return false;">Contact</a>
+        </nav>
+        <a href="tel:+919821313487" class="header-call-btn hover-target"><i class="fa-solid fa-phone"></i> Call Now</a>
+        <div class="mobile-menu-toggle" onclick="toggleMobileMenu()"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
+    </div>
+</header>
+
+<div class="mobile-menu-overlay" id="mobileMenu">
+    <a href="#home" class="mobile-link" onclick="mobileLinkClick('home'); return false;">Home</a>
+    <a href="#about" class="mobile-link" onclick="mobileLinkClick('about'); return false;">About Us</a>
+    <a href="#services" class="mobile-link" onclick="mobileLinkClick('services'); return false;">Expertise</a>
+    <a href="#projects" class="mobile-link" onclick="mobileLinkClick('projects'); return false;">Portfolio</a>
+    <a href="#calculator" class="mobile-link" onclick="mobileLinkClick('calculator'); return false;">Estimate</a>
+    <a href="#contact" class="mobile-link" onclick="mobileLinkClick('contact'); return false;">Contact</a>
+</div>
+
+<main>
+    <section id="home" class="tab-section active-tab">
+        <div class="hero-screen">
+            <div class="hero-bg"></div>
+            <div class="container hero-content">
+                <h1 class="hero-title"><span>Calm Luxury.</span><span>Future Living.</span></h1>
+                <p class="hero-kicker">Mumbai Based Interior Studio</p>
+                <p class="hero-sub">Defining The Aesthetics Of Modern Mumbai. We Craft Bespoke Residential and Commercial Spaces That Blend High-End luxury with Functional Timelessness.</p>
+                <div class="hero-cta-stack">
+                    <button class="btn hover-target" onclick="switchTab('projects')">Explore Work</button>
+                    <div class="scroll-indicator"> &darr;</div>
+                </div>
+                <div class="hero-pill-row">
+                    <span class="hero-pill">Turnkey Execution</span>
+                    <span class="hero-pill">Transparent BOQ</span>
+                    <span class="hero-pill">Luxury Residences</span>
+                </div>
+            </div>
+        </div>
+        <div class="container teaser-section studio-feature">
+            <div class="teaser-grid">
+                <div class="teaser-content">
+                    <span class="section-subtitle">01 / THE STUDIO</span><h2 class="teaser-title">Design rooted in Soul.</h2>
+                    <p class="teaser-desc">We move beyond trends. By combining architectural precision with an artistic selection of textures, we create environments that feel personal and profoundly sophisticated.</p>
+                    <div class="teaser-points">
+                        <span class="teaser-point">Calm luxury language</span>
+                        <span class="teaser-point">Context-first planning</span>
+                        <span class="teaser-point">Texture-led detailing</span>
+                    </div>
+                    <button class="btn hover-target" onclick="switchTab('about')">Read Philosophy</button>
+                </div>
+                <div class="img-reveal-wrap hover-target"><img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1200" class="teaser-img" alt="Studio Teaser"><span class="studio-image-tag">Powai Residence • Signature Living</span></div>
+            </div>
+        </div>
+        <div class="container teaser-section">
+            <div class="teaser-grid">
+                <div class="img-reveal-wrap hover-target"><img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=1200" class="teaser-img" alt="Services Teaser"></div>
+                <div class="teaser-content">
+                    <span class="section-subtitle">02 / EXPERTISE</span><h2 class="teaser-title">End-to-end expertise.</h2>
+                    <p class="teaser-desc">From Luxury Residences in Powai. Our turnkey solutions cover everything from concept to the final styling.</p>
+                    <button class="btn hover-target" onclick="switchTab('services')">View Services</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="container teaser-section" style="border-bottom: none; padding-top: 50px;">
+            <div style="text-align: center; margin-bottom: 50px;">
+                <span class="section-subtitle">The Promise</span><h2 class="section-title">Why Choose Us?</h2><p style="color:#ffdfe2; font-size: 0.9rem; margin-top:10px;">(Click on a card to read more)</p>
+            </div>
+            <div class="wcu-grid">
+                <div class="wcu-card hover-target" onclick="openWCUPage(1)"><div class="wcu-top"><div class="wcu-icon-wrapper"><i class="fa-solid fa-compass-drafting"></i></div><h3>Smart Design</h3><div class="wcu-indicator">Read Detail &rarr;</div></div></div>
+                <div class="wcu-card hover-target" onclick="openWCUPage(2)"><div class="wcu-top"><div class="wcu-icon-wrapper"><i class="fa-solid fa-gem"></i></div><h3>Minimal Luxury</h3><div class="wcu-indicator">Read Detail &rarr;</div></div></div>
+                <div class="wcu-card hover-target" onclick="openWCUPage(3)"><div class="wcu-top"><div class="wcu-icon-wrapper"><i class="fa-solid fa-file-invoice-dollar"></i></div><h3>Fair Pricing</h3><div class="wcu-indicator">Read Detail &rarr;</div></div></div>
+                <div class="wcu-card hover-target" onclick="openWCUPage(4)"><div class="wcu-top"><div class="wcu-icon-wrapper"><i class="fa-solid fa-helmet-safety"></i></div><h3>Full Execution</h3><div class="wcu-indicator">Read Detail &rarr;</div></div></div>
+                <div class="wcu-card hover-target" onclick="openWCUPage(5)"><div class="wcu-top"><div class="wcu-icon-wrapper"><i class="fa-solid fa-layer-group"></i></div><h3>Quality Material</h3><div class="wcu-indicator">Read Detail &rarr;</div></div></div>
+                <div class="wcu-card hover-target" onclick="openWCUPage(6)"><div class="wcu-top"><div class="wcu-icon-wrapper"><i class="fa-solid fa-clock"></i></div><h3>On Time</h3><div class="wcu-indicator">Read Detail &rarr;</div></div></div>
+            </div>
+        </div>
+
+        <!-- CTA STRIP -->
+        <div class="container" style="margin-top: 80px; margin-bottom: 0;">
+            <div class="cta-strip">
+                <h2 class="section-title" style="font-size: 2.5rem; margin-bottom: 10px;">Curious about the cost?</h2>
+                <p style="color: #ffecee; margin-bottom: 30px; font-size: 1.1rem;">Get a quick, transparent estimate for your home interior project.</p>
+                <button class="btn hover-target" onclick="switchTab('calculator')">Calculate Price Now</button>
+            </div>
+        </div>
+        <div class="container">
+            <div class="inquiry-funnel">
+                <div class="funnel-head">
+                    <span class="section-subtitle">Start In 60 Seconds</span>
+                    <h2 class="funnel-title">A smoother path from inspiration to quote.</h2>
+                </div>
+                <div class="funnel-steps">
+                    <div class="funnel-step"><span>1</span>Choose your home type</div>
+                    <div class="funnel-step"><span>2</span>Select rooms and finishes</div>
+                    <div class="funnel-step"><span>3</span>Get an instant budget range</div>
+                </div>
+                <div class="funnel-actions">
+                    <button class="btn hover-target" onclick="switchTab('calculator')">Start Free Estimate</button>
+                    <a href="https://wa.me/919821313487?text=Hi%2C%20I%20want%20to%20discuss%20my%20interior%20project." target="_blank" class="btn btn-whatsapp hover-target">Talk on WhatsApp</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="shared-footer">
+            <div class="container">
+                <h2 class="footer-big-title">Let's create something<br>timeless.</h2>
+                <div class="footer-grid">
+                    <div class="f-col"><h5>VISIT US</h5><p>Powai, Mumbai</p></div>
+                    <div class="f-col"><h5>CONTACT</h5><a href="tel:+919821313487" class="phone-link hover-target">+91 98213 13487</a><a href="tel:+919833503702" class="phone-link hover-target">+ 91 98335 03702</a><a href="mailto:info@rivaaninteriors.com" class="hover-target">info@rivaaninteriors.com</a></div>
+                    <div class="f-col"><h5>FOLLOW</h5><a href="https://www.instagram.com/rivaan.interiors/" target="_blank" class="hover-target">Instagram</a></div>
+                </div>
+                <a href="https://wa.me/919821313487" target="_blank" class="btn btn-whatsapp hover-target">Chat on WhatsApp</a>
+                <p class="copyright">&copy; 2025 Rivaan Interiors.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="wcu-page" class="tab-section">
+        <div class="container tab-content-pad">
+            <button class="btn hover-target" onclick="switchTab('home')" style="margin-bottom: 30px; font-size: 0.7rem; padding: 10px 20px;">&larr; Back to Home</button>
+            <div style="text-align: center; max-width: 800px; margin: 0 auto 60px;">
+                <div style="font-size: 4rem; color: var(--gold); margin-bottom: 30px;"><i id="wcu-display-icon" class=""></i></div>
+                <span class="section-subtitle" id="wcu-display-sub">Core Value</span><h1 class="hero-title" style="font-size: 3rem; margin-bottom: 40px;" id="wcu-display-title">Title Here</h1>
+                <div style="height: 2px; width: 100px; background: var(--gold); margin: 0 auto 40px;"></div>
+                <p id="wcu-display-desc" style="font-size: 1.2rem; line-height: 1.8; color: #fff0f0;">Description goes here...</p>
+            </div>
+        </div>
+
+        <!-- CTA STRIP -->
+        <div class="container" style="margin-top: 50px; margin-bottom: 0;">
+            <div class="cta-strip">
+                <h2 class="section-title" style="font-size: 2.5rem; margin-bottom: 10px;">Plan your budget.</h2>
+                <p style="color: #ffecee; margin-bottom: 30px; font-size: 1.1rem;">See how much this level of quality costs.</p>
+                <button class="btn hover-target" onclick="switchTab('calculator')">Calculate Price Now</button>
+            </div>
+        </div>
+
+        <div class="shared-footer">
+            <div class="container">
+                <h2 class="footer-big-title">Liked our approach?<br>Let's Talk.</h2>
+                <div class="footer-grid">
+                    <div class="f-col"><h5>VISIT US</h5><p>Powai, Mumbai</p></div>
+                    <div class="f-col"><h5>CONTACT</h5><a href="tel:+919821313487" class="phone-link hover-target">+91 98213 13487</a><a href="tel:+919833503702" class="phone-link hover-target">+ 91 98335 03702</a></div>
+                    <div class="f-col"><h5>SOCIAL</h5><a href="https://www.instagram.com/rivaan.interiors/" target="_blank">Instagram</a></div>
+                </div>
+                <a href="https://wa.me/919821313487" target="_blank" class="btn btn-whatsapp hover-target">Chat on WhatsApp</a>
+                <p class="copyright">&copy; 2025 Rivaan Interiors.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="tab-section">
+        <div class="container tab-content-pad">
+            <div class="section-header"><span class="section-subtitle">The Studio</span><h2 class="section-title">Design rooted in <br>Mumbai's soul.</h2></div>
+            <div class="about-grid">
+                <div class="about-text">
+                    <h3>The Philosophy</h3>
+                    <p><em>Every project we undertake reflects our identity. That's why we believe exceptional interiors begin with creativity, are shaped by craftsmanship, and are delivered without ever compromising on quality.</em></p>
+                    <p>At Rivaan Interiors, we believe every space tells a story. That is why we approach each home and workspace with the same passion, creativity, and commitment as if we were designing it for ourselves.</p>
+                    <p>Our philosophy is simple: quality is never negotiable. From space planning and bespoke furniture manufacturing to execution and finishing, every detail is crafted with precision, honesty, and care.</p>
+                    <p>We do not impose a fixed style. Every client has a unique vision, lifestyle, and personality, and great design begins with understanding that. Whether your dream is contemporary, minimal, timeless, or distinctive, we transform your ideas into elegant, functional spaces that feel uniquely yours.</p>
+                    <p>Much of our work comes through client referrals, which means a great deal to us. Serving Mumbai, Navi Mumbai, and Thane, we provide complete turnkey interior solutions with custom furniture manufacturing and complete control over every stage of execution.</p>
+                    <p>At Rivaan Interiors, we do not simply create beautiful interiors, we create spaces that inspire, enrich everyday living, and stand the test of time.</p>
+                    <p><strong>Dream | Design | Deliver</strong></p>
+                </div>
+                <div class="about-img-wrap hover-target"><img src="https://images.unsplash.com/photo-1600585154363-67eb9e2e2099?q=80&w=1200" alt="Design Materials"></div>
+            </div>
+            <div class="stats-row" style="margin-bottom: 80px;">
+                <div class="stat-item"><h3>10+</h3><p>Years of Excellence</p></div><div class="stat-item"><h3>50+</h3><p>Luxury Residences</p></div><div class="stat-item"><h3>100%</h3><p>Bespoke Execution</p></div>
+            </div>
+        </div>
+
+        <!-- CTA STRIP -->
+        <div class="container" style="margin-top: 50px; margin-bottom: 0;">
+            <div class="cta-strip">
+                <h2 class="section-title" style="font-size: 2.5rem; margin-bottom: 10px;">Ready to start?</h2>
+                <p style="color: #ffecee; margin-bottom: 30px; font-size: 1.1rem;">Get an estimate for your bespoke project.</p>
+                <button class="btn hover-target" onclick="switchTab('calculator')">Calculate Price Now</button>
+            </div>
+        </div>
+
+        <div class="shared-footer">
+            <div class="container">
+                <h2 class="footer-big-title">Ready to start?</h2>
+                <div class="footer-grid">
+                    <div class="f-col"><h5>VISIT US</h5><p>Powai, Mumbai</p></div>
+                    <div class="f-col"><h5>CONTACT</h5><a href="tel:+919821313487" class="phone-link hover-target">+91 98213 13487</a><a href="tel:+919833503702" class="phone-link hover-target">+ 91 98335 03702</a></div>
+                    <div class="f-col"><h5>SOCIAL</h5><a href="https://www.instagram.com/rivaan.interiors/" target="_blank">Instagram</a></div>
+                </div>
+                <a href="https://wa.me/919821313487" target="_blank" class="btn btn-whatsapp hover-target">Chat on WhatsApp</a>
+                <p class="copyright">&copy; 2025 Rivaan Interiors.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="tab-section">
+        <div class="container tab-content-pad">
+            <div class="section-header"><span class="section-subtitle">What We Do</span><h2 class="section-title">Comprehensive <br>Design Solutions.</h2></div>
+            <div class="dna-list">
+                <div class="dna-item"><span>01</span> Space Planning</div><div class="dna-item"><span>02</span> 3D Visualization</div><div class="dna-item"><span>03</span> Material Sourcing</div><div class="dna-item"><span>04</span> Project Management</div>
+            </div>
+            <div class="services-grid">
+                <div class="service-card hover-target" onclick="switchTab('calculator')" style="cursor: pointer;">
+                    <div class="service-bg"><img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=800" alt="Residential"></div>
+                    <div class="service-content"><h3 class="service-title">Residential Interiors</h3><p class="service-desc">Get an Instant Quote. Click here to calculate pricing for your bespoke home interior.</p></div>
+                </div>
+                <div class="service-card hover-target">
+                    <div class="service-bg"><img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=800" alt="Commercial"></div>
+                    <div class="service-content"><h3 class="service-title">Commercial Spaces</h3><p class="service-desc">Strategic design for corporate HQs and boutique offices.</p></div>
+                </div>
+                <div class="service-card hover-target" onclick="switchTab('calculator')" style="cursor: pointer;">
+                    <div class="service-bg"><img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=800" alt="Turnkey"></div>
+                    <div class="service-content"><h3 class="service-title">Turnkey Solutions</h3><p class="service-desc">End-to-end execution. Click to estimate the cost for a complete turnkey transformation.</p></div>
+                </div>
+                <div class="service-card hover-target" onclick="switchTab('furniture')" style="cursor: pointer;">
+                    <div class="service-bg"><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=800" alt="Furniture"></div>
+                    <div class="service-content"><h3 class="service-title">Bespoke Furniture</h3><p class="service-desc">Custom Craftsmanship. Click to design your piece and get a price estimate.</p></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA STRIP -->
+        <div class="container" style="margin-top: 50px; margin-bottom: 0;">
+            <div class="cta-strip">
+                <h2 class="section-title" style="font-size: 2.5rem; margin-bottom: 10px;">Get a Quote.</h2>
+                <p style="color: #ffecee; margin-bottom: 30px; font-size: 1.1rem;">Estimate the cost for your residential or turnkey project.</p>
+                <button class="btn hover-target" onclick="switchTab('calculator')">Calculate Price Now</button>
+            </div>
+        </div>
+
+        <div class="shared-footer">
+            <div class="container">
+                <h2 class="footer-big-title">Build your vision.</h2>
+                <div class="footer-grid">
+                    <div class="f-col"><h5>VISIT US</h5><p>Powai, Mumbai</p></div>
+                    <div class="f-col"><h5>CONTACT</h5><a href="tel:+919821313487" class="phone-link hover-target">+91 98213 13487</a><a href="tel:+919833503702" class="phone-link hover-target">+ 91 98335 03702</a></div>
+                    <div class="f-col"><h5>SOCIAL</h5><a href="https://www.instagram.com/rivaan.interiors/" target="_blank">Instagram</a></div>
+                </div>
+                <a href="https://wa.me/919821313487" target="_blank" class="btn btn-whatsapp hover-target">Chat on WhatsApp</a>
+                <p class="copyright">&copy; 2025 Rivaan Interiors.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="calculator" class="tab-section">
+        <div class="container tab-content-pad">
+            <div class="section-header calc-page-header">
+                <button class="btn hover-target" onclick="switchTab('home')" style="padding: 10px 20px; font-size: 0.7rem; margin-bottom: 20px;">&larr; Back to Home</button>
+                <span class="section-subtitle">Price Estimator</span>
+                <h2 class="section-title calc-section-title-compact">Premium estimate wizard</h2>
+                <p class="calc-section-copy">Step through property type, rooms, finishes, and lead details in a clean guided flow.</p>
+            </div>
+            <div class="calc-wrapper calc-wizard">
+                <div class="calc-wizard-head">
+                    <div>
+                        <span class="calc-label" style="margin-bottom: 8px;">Step-by-step estimator</span>
+                        <h3 class="calc-wizard-title">Build a premium interior estimate in minutes.</h3>
+                    </div>
+                    <button type="button" class="btn hover-target calc-reset-btn" onclick="resetInteriorEstimator()">Reset Calculator</button>
+                </div>
+                <div class="calc-progress">
+                    <div class="calc-progress-bar"><span id="calcProgressFill"></span></div>
+                    <div class="calc-progress-steps" id="calcProgressSteps"></div>
+                </div>
+                <div class="calc-wizard-layout">
+                    <div class="calc-wizard-main">
+                        <p class="calc-step-kicker" id="calcStepKicker">Step 1</p>
+                        <h3 class="calc-step-title" id="calcStepTitle">Select Property Type</h3>
+                        <p class="calc-step-desc" id="calcStepDesc">Start with the home size, then choose finishes and rooms. All selections update the estimate instantly.</p>
+                        <div id="calcStepContent"></div>
+                        <div class="calc-nav">
+                            <button type="button" class="btn hover-target calc-nav-btn" id="calcPrevBtn" onclick="prevCalcStep()">Back</button>
+                            <button type="button" class="btn hover-target calc-nav-btn" id="calcNextBtn" onclick="nextCalcStep()">Continue</button>
+                        </div>
+                    </div>
+                    <aside class="calc-summary-panel">
+                        <div class="calc-summary-head">
+                            <span>Live Estimate</span>
+                            <h4 id="calcSummaryTotal">₹0</h4>
+                        </div>
+                        <div class="calc-summary-meta" id="calcSummaryMeta"></div>
+                        <div class="calc-summary-breakdown" id="calcSummaryBreakdown"></div>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="furniture" class="tab-section">
+        <div class="container tab-content-pad">
+            <div class="section-header"><button class="btn hover-target" onclick="switchTab('services')" style="padding: 10px 20px; font-size: 0.7rem; margin-bottom: 20px;">&larr; Back to Services</button><span class="section-subtitle">Furniture Customizer</span><h2 class="section-title">Craft Your Piece.</h2></div>
+            <div class="furniture-layout">
+                <div class="furn-visual hover-target"><img id="furn-img-display" src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=1200" alt="Bespoke Furniture"><div style="position:absolute; bottom:20px; left:20px; color:#fff; font-size:0.8rem; background:rgba(0,0,0,0.5); padding:5px 10px;">Design Preview</div></div>
+                <div class="furn-controls">
+                    <span class="calc-label">1. Select Item Type</span>
+                    <div class="calc-grid-options" id="furn-type-options">
+                        <div class="calc-option hover-target" onclick="selectFurnitureType(this, 'sofa')">Luxury Sofa</div><div class="calc-option hover-target" onclick="selectFurnitureType(this, 'bed')">King Bed</div><div class="calc-option hover-target" onclick="selectFurnitureType(this, 'dining')">Dining Table</div><div class="calc-option hover-target" onclick="selectFurnitureType(this, 'console')">Console</div><div class="calc-option hover-target" onclick="selectFurnitureType(this, 'wardrobe')">Wardrobe</div>
+                    </div>
+                    <span class="calc-label">2. Select Material</span>
+                    <div class="calc-grid-options" id="dynamic-furn-materials"><div style="color:#ffd5d9; font-size:0.9rem; padding:10px 0;">← Select an Item Type first</div></div>
+                    <span class="calc-label">3. Select Finish Tier</span>
+                    <div class="calc-grid-options" id="furn-tier-options"><div class="calc-option hover-target" onclick="selectFurnitureTier(this, 'standard')">Standard</div><div class="calc-option hover-target" onclick="selectFurnitureTier(this, 'premium')">Premium</div><div class="calc-option hover-target" onclick="selectFurnitureTier(this, 'luxe')">Luxe</div></div>
+                    <div style="margin: 40px 0; border-top: 1px solid var(--glass-border); padding-top:20px;"><button class="btn hover-target" onclick="calculateFurniturePrice()">Get Estimate</button></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="tab-section">
+        <div class="container tab-content-pad">
+            <div class="section-header"><span class="section-subtitle">Selected Works</span><h2 class="section-title">Curated Spaces.</h2></div>
+            <div class="project-grid">
+                <div class="project-item hover-target" style="cursor: pointer;" onclick="openProjectPage('Hiranandani Highland', 'Powai, Mumbai', '2-BHK Residential', '2024', 'Nordic Luxury', 'A sanctuary of beige and cream...', 'images/livingroom.jpeg')"><img src="images/livingroom.jpeg" class="p-img" alt="living room"><div class="p-info"><h3 class="p-title">LIVING ROOM</h3><span class="p-loc">Powai • 1-BHK Residential</span></div></div>
+                <div class="project-item hover-target" style="cursor: pointer;" onclick="openProjectPage('Castle Rock', 'Powai, Mumbai', '1-BHK Luxury Suite', '2023', 'Modern Minimalist', 'Compact luxury defined by smart modular furniture...', 'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?q=80&w=800')"><img src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?q=80&w=800" class="p-img" alt="Castle Rock"><div class="p-info"><h3 class="p-title">BED ROOM</h3><span class="p-loc">Powai • 1-BHK Suite</span></div></div>
+                <div class="project-item hover-target" style="cursor: pointer;" onclick="openProjectPage('Regent Hill Estates', 'Kensington SE, Mumbai', '2-BHK Family Home', '2024', 'Contemporary Art Deco', 'A bespoke dining experience...', 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=800')"><img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=800" class="p-img" alt="Regent Hill"><div class="p-info"><h3 class="p-title">KITCHEN</h3><span class="p-loc">Powai • 1-BHK</span></div></div>
+                <div class="project-item hover-target" style="cursor: pointer;" onclick="openProjectPage('The Corporate Loft', 'Regent Hill, Commercial', 'Commercial Office', '2023', 'Industrial Chic', 'Commercial elegance...', 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800')"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800" class="p-img" alt="Office Lounge"><div class="p-info"><h3 class="p-title">DINING AREA</h3><span class="p-loc">Powai • 2-BHK</span></div></div>
+                <div class="project-item hover-target" style="cursor: pointer;" onclick="openProjectPage('Ventura Heights', 'Bandra West', '2-BHK Penthouse', '2024', 'Avant Garde', 'Minimalist living area...', 'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?q=80&w=800')"><img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?q=80&w=800" class="p-img" alt="Ventura"><div class="p-info"><h3 class="p-title">BATHROOM</h3><span class="p-loc">Powai • 2-BHK</span></div></div>
+                <!-- Fixed Typo: GUAST ROOM -> GUEST ROOM -->
+                <div class="project-item hover-target" style="cursor: pointer;" onclick="openProjectPage('Birchwood Apartment', 'Juhu, Mumbai', '3-BHK Sea View', '2023', 'Dark Academia', 'A moody, sophisticated palette...', 'https://images.unsplash.com/photo-1600573472591-ee6c563aaec9?q=80&w=800')"><img src="https://images.unsplash.com/photo-1600573472591-ee6c563aaec9?q=80&w=800" class="p-img" alt="Birchwood"><div class="p-info"><h3 class="p-title">GUEST ROOM</h3><span class="p-loc">Powai • 2-BHK</span></div></div>
+            </div>
+        </div>
+
+        <!-- CTA STRIP -->
+        <div class="container" style="margin-top: 50px; margin-bottom: 0;">
+            <div class="cta-strip">
+                <h2 class="section-title" style="font-size: 2.5rem; margin-bottom: 10px;">Like this style?</h2>
+                <p style="color: #ffecee; margin-bottom: 30px; font-size: 1.1rem;">Calculate the cost to bring this look to your home.</p>
+                <button class="btn hover-target" onclick="switchTab('calculator')">Calculate Price Now</button>
+            </div>
+        </div>
+
+        <div class="shared-footer">
+            <div class="container">
+                <h2 class="footer-big-title">Ready to start?</h2>
+                <div class="footer-grid">
+                    <div class="f-col"><h5>VISIT US</h5><p>Powai, Mumbai</p></div>
+                    <!-- Fixed Typo in phone link: tel:+a91... -> tel:+91... -->
+                    <div class="f-col"><h5>CONTACT</h5><a href="tel:+919821313487" class="phone-link hover-target">+91 98213 13487</a><a href="tel:+919833503702" class="phone-link hover-target">+ 91 98335 03702</a></div>
+                </div>
+                <p class="copyright">&copy; 2025 Rivaan Interiors.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="project-view" class="tab-section">
+        <div class="container tab-content-pad">
+            <button class="btn hover-target" onclick="switchTab('projects')" style="margin-bottom: 30px; font-size: 0.7rem; padding: 10px 20px;">&larr; Back to Portfolio</button>
+            <div class="pv-header"><span class="section-subtitle" id="pv-sub">Residential</span><h1 class="hero-title" style="font-size: 4rem;" id="pv-title">Project Name</h1></div>
+            <div class="pv-hero"><img id="pv-hero-img" src="images/livingroom2.jpeg" alt="Project Hero"></div>
+            <div class="pv-meta-grid">
+                <div class="pv-meta-item"><h5>LOCATION</h5><p id="pv-loc">Mumbai</p></div><div class="pv-meta-item"><h5>YEAR</h5><p id="pv-year">2024</p></div><div class="pv-meta-item"><h5>TYPE</h5><p id="pv-type">Residential</p></div><div class="pv-meta-item"><h5>STYLE</h5><p id="pv-style">Modern</p></div>
+            </div>
+            <div class="pv-desc-container"><p class="pv-desc-text" id="pv-desc">Description goes here.</p><br><a href="https://wa.me/919821313487" target="_blank" class="btn btn-whatsapp hover-target">Inquire About This Project</a></div>
+            <div class="section-header"><span class="section-subtitle">Gallery</span><h2 class="section-title">More Views.</h2></div>
+            <div class="pv-gallery"><div class="pv-gallery-item hover-target"><img id="pv-gal-1" src="" alt="Detail 1"></div><div class="pv-gallery-item hover-target"><img id="pv-gal-2" src="" alt="Detail 2"></div></div>
+        </div>
+
+        <!-- CTA STRIP -->
+        <div class="container" style="margin-top: 50px; margin-bottom: 0;">
+            <div class="cta-strip">
+                <h2 class="section-title" style="font-size: 2.5rem; margin-bottom: 10px;">Like this style?</h2>
+                <p style="color: #ffecee; margin-bottom: 30px; font-size: 1.1rem;">Calculate the cost to bring this look to your home.</p>
+                <button class="btn hover-target" onclick="switchTab('calculator')">Calculate Price Now</button>
+            </div>
+        </div>
+
+        <div class="shared-footer">
+            <div class="container">
+                <h2 class="footer-big-title">Ready to start?</h2>
+                <div class="footer-grid">
+                    <div class="f-col"><h5>VISIT US</h5><p>Powai, Mumbai</p></div>
+                    <!-- Fixed Typo in phone link: tel:+a91... -> tel:+91... -->
+                    <div class="f-col"><h5>CONTACT</h5><a href="tel:+919821313487" class="phone-link hover-target">+91 98213 13487</a><a href="tel:+919833503702" class="phone-link hover-target">+ 91 98335 03702</a></div>
+                </div>
+                <p class="copyright">&copy; 2025 Rivaan Interiors.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="tab-section">
+        <div class="container contact-wrap">
+            <h1 class="footer-big-title" style="margin-bottom: 60px;">Let's create something<br>timeless.</h1>
+            <div class="footer-grid">
+                <div class="f-col"><h5>VISIT US</h5><p>Powai, Mumbai</p></div>
+                    <div class="f-col"><h5>CONTACT</h5><a href="tel:+919821313487" class="phone-link hover-target">+91 98213 13487</a><a href="tel:+919833503702" class="phone-link hover-target">+ 91 98335 03702</a><a href="mailto:info@rivaaninteriors.com" class="hover-target">info@rivaaninteriors.com</a></div>
+                <div class="f-col"><h5>FOLLOW</h5><a href="https://www.instagram.com/rivaan.interiors/" target="_blank" class="hover-target">Instagram</a></div>
+            </div>
+            <a href="https://wa.me/919821313487" target="_blank" class="btn btn-whatsapp hover-target">Chat on WhatsApp</a>
+            <p class="copyright">&copy; 2025 Rivaan Interiors.</p>
+        </div>
+    </section>
+</main>
+
+<div class="sticky-inquiry" id="stickyInquiry">
+    <div class="sticky-inquiry-content">
+        <p class="sticky-label">Ready for your estimate?</p>
+        <p class="sticky-sub">Transparent pricing for your interiors.</p>
+    </div>
+    <div class="sticky-inquiry-actions">
+        <button class="btn hover-target sticky-btn" onclick="switchTab('calculator')">Calculate</button>
+        <a href="https://wa.me/919821313487?text=Hi%2C%20I%20want%20a%20detailed%20quote%20for%20my%20interiors." target="_blank" class="btn btn-whatsapp hover-target sticky-btn">WhatsApp</a>
+    </div>
+</div>
+
+<div id="result-modal" class="modal-overlay">
+    <div class="modal-box">
+        <button type="button" class="close-modal hover-target" onclick="closeResultModal()" aria-label="Close estimate modal">&times;</button>
+        <span class="modal-title" id="modal-title-text">ESTIMATED PROJECT COST</span>
+        <h2 class="modal-price-display" id="modal-price-text">₹0</h2>
+        <p class="modal-disclaimer">*Approximate valuation. Final quote depends on material selection.</p>
+        <a id="modal-whatsapp-btn" href="https://wa.me/919821313487" target="_blank" class="btn btn-whatsapp hover-target">Get Exact Quote on WhatsApp</a>
+    </div>
+</div>
+
+<!-- Main JS -->
+<script src="js/script.js"></script>
+
+</body>
+</html>
