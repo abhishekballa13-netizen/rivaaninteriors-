@@ -694,19 +694,19 @@ main { position: relative; width: 100vw; height: 100vh; height: 100dvh; z-index:
     .calc-page-header .section-subtitle,
     .calc-page-header .section-title,
     .calc-page-header .calc-section-copy { display: none; }
-    .calc-wrapper { padding: 34px 22px 22px; border-radius: 12px; }
+    .calc-wrapper { padding: 42px 22px 24px; border-radius: 12px; }
     .calc-wizard { padding: 0; }
-    .calc-wizard-head { flex-direction: column; align-items: stretch; margin: 12px 0 22px; padding: 0 10px; }
+    .calc-wizard-head { flex-direction: column; align-items: stretch; margin: 20px 0 26px; padding: 0 10px; }
     .calc-wizard-head > div { flex-basis: auto; }
     .calc-label { font-size: 0.84rem; margin-bottom: 8px; letter-spacing: 1.2px; }
     .calc-wizard-title { font-size: 1rem; line-height: 1.15; }
     .calc-reset-btn { margin-left: 0; width: 100%; min-width: 0; }
     .calc-progress { display: none; }
     .calc-wizard-layout { gap: 22px; padding: 0 10px 10px; }
-    .calc-wizard-main { padding: 18px 10px 4px; }
-    .calc-step-kicker { margin-bottom: 8px; font-size: 0.68rem; }
-    .calc-step-title { font-size: 1.2rem; margin-bottom: 10px; }
-    .calc-step-desc { margin-bottom: 18px; font-size: 0.86rem; line-height: 1.5; }
+    .calc-wizard-main { padding: 24px 10px 6px; }
+    .calc-step-kicker { margin-bottom: 10px; font-size: 0.68rem; }
+    .calc-step-title { font-size: 1.2rem; margin-bottom: 12px; }
+    .calc-step-desc { margin-bottom: 22px; font-size: 0.86rem; line-height: 1.55; }
     .calc-card-grid { grid-template-columns: 1fr; gap: 12px; }
     .calc-card-choice {
         min-height: 0;
@@ -719,10 +719,10 @@ main { position: relative; width: 100vw; height: 100vh; height: 100dvh; z-index:
     .calc-card-icon { grid-column: 1; grid-row: 1 / span 2; width: 44px; height: 44px; }
     .calc-card-title { grid-column: 2; font-size: 1rem; line-height: 1.25; }
     .calc-card-sub { grid-column: 2; font-size: 0.72rem; line-height: 1.4; }
-    .calc-room-group { padding: 14px; margin: 0 4px 18px; }
+    .calc-room-group { padding: 16px; margin: 0 4px 20px; }
     .calc-room-header h4 { font-size: 1rem; }
     .calc-villa-stepper { width: 100%; }
-    .calc-summary-panel { padding: 20px 18px; border-radius: 16px; margin: 0 4px; }
+    .calc-summary-panel { padding: 22px 18px; border-radius: 16px; margin: 0 4px; }
     .calc-summary-head h4 { font-size: 1.8rem; }
     .calc-summary-chip, .calc-break-item { align-items: flex-start; flex-direction: column; }
     .calc-summary-chip strong, .calc-break-item strong { text-align: left; white-space: normal; }
