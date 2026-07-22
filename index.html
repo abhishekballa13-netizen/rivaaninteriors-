@@ -112,27 +112,28 @@
         </div>
 
         <!-- CTA STRIP -->
-        <div class="container" style="margin-top: 80px; margin-bottom: 0;">
-            <div class="cta-strip">
-                <h2 class="section-title" style="font-size: 2.5rem; margin-bottom: 10px;">Curious about the cost?</h2>
-                <p style="color: #ffecee; margin-bottom: 30px; font-size: 1.1rem;">Get a quick, transparent estimate for your home interior project.</p>
-                <button class="btn hover-target" onclick="switchTab('calculator')">Calculate Price Now</button>
-            </div>
-        </div>
-        <div class="container">
-            <div class="inquiry-funnel">
-                <div class="funnel-head">
-                    <span class="section-subtitle">Start In 60 Seconds</span>
-                    <h2 class="funnel-title">A smoother path from inspiration to quote.</h2>
+        <div class="container home-estimate-section">
+            <div class="home-estimate-panel">
+                <div class="cta-strip">
+                    <span class="section-subtitle">Estimate your project</span>
+                    <h2 class="section-title" style="font-size: 2.5rem; margin-bottom: 10px;">Curious about the cost?</h2>
+                    <p style="color: #ffecee; margin-bottom: 30px; font-size: 1.1rem;">Get a quick, transparent estimate for your home interior project.</p>
+                    <button class="btn hover-target" onclick="switchTab('calculator')">Calculate Price Now</button>
                 </div>
-                <div class="funnel-steps">
-                    <div class="funnel-step"><span>1</span>Choose your home type</div>
-                    <div class="funnel-step"><span>2</span>Select rooms and finishes</div>
-                    <div class="funnel-step"><span>3</span>Get an instant budget range</div>
-                </div>
-                <div class="funnel-actions">
-                    <button class="btn hover-target" onclick="switchTab('calculator')">Start Free Estimate</button>
-                    <a href="https://wa.me/919821313487?text=Hi%2C%20I%20want%20to%20discuss%20my%20interior%20project." target="_blank" class="btn btn-whatsapp hover-target">Talk on WhatsApp</a>
+                <div class="inquiry-funnel">
+                    <div class="funnel-head">
+                        <span class="section-subtitle">Start in 60 seconds</span>
+                        <h2 class="funnel-title">A smoother path from inspiration to quote.</h2>
+                    </div>
+                    <div class="funnel-steps">
+                        <div class="funnel-step"><span>1</span>Choose your home type</div>
+                        <div class="funnel-step"><span>2</span>Select rooms and finishes</div>
+                        <div class="funnel-step"><span>3</span>Get an instant budget range</div>
+                    </div>
+                    <div class="funnel-actions">
+                        <button class="btn hover-target" onclick="switchTab('calculator')">Start Free Estimate</button>
+                        <a href="https://wa.me/919821313487?text=Hi%2C%20I%20want%20to%20discuss%20my%20interior%20project." target="_blank" class="btn btn-whatsapp hover-target">Talk on WhatsApp</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -312,7 +313,7 @@
                     <aside class="calc-summary-panel">
                         <div class="calc-summary-head">
                             <span>Live Estimate</span>
-                            <h4 id="calcSummaryTotal">₹0</h4>
+                            <h4 id="calcSummaryTotal">₹0 onwards</h4>
                         </div>
                         <div class="calc-summary-meta" id="calcSummaryMeta"></div>
                         <div class="calc-summary-breakdown" id="calcSummaryBreakdown"></div>
@@ -442,8 +443,8 @@
     <div class="modal-box">
         <button type="button" class="close-modal hover-target" onclick="closeResultModal()" aria-label="Close estimate modal">&times;</button>
         <span class="modal-title" id="modal-title-text">ESTIMATED PROJECT COST</span>
-        <h2 class="modal-price-display" id="modal-price-text">₹0</h2>
-        <p class="modal-disclaimer">*Approximate valuation. Final quote depends on material selection.</p>
+        <h2 class="modal-price-display" id="modal-price-text">₹0 onwards</h2>
+        <p class="modal-disclaimer">*Approximate valuation. Final quote depends on material selection and may vary from the starting prices shown.</p>
         <a id="modal-whatsapp-btn" href="https://wa.me/919821313487" target="_blank" class="btn btn-whatsapp hover-target">Get Exact Quote on WhatsApp</a>
     </div>
 </div>

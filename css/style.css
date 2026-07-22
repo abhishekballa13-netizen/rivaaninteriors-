@@ -290,14 +290,14 @@ main { position: relative; width: 100vw; height: 100vh; height: 100dvh; z-index:
 }
 
 .inquiry-funnel {
-    margin-top: calc(-1 * var(--space-6));
-    margin-bottom: var(--space-7);
+    margin-top: 0;
+    margin-bottom: 0;
     border: 1px solid rgba(255, 214, 219, 0.16);
-    border-radius: 16px;
+    border-radius: 18px;
     background: linear-gradient(145deg, rgba(75, 6, 16, 0.82), rgba(120, 11, 28, 0.66));
     backdrop-filter: none;
     box-shadow: var(--card-shadow);
-    padding: var(--space-6);
+    padding: 42px;
     position: relative;
     z-index: 4;
 }
@@ -341,6 +341,22 @@ main { position: relative; width: 100vw; height: 100vh; height: 100dvh; z-index:
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-3);
+}
+
+.home-estimate-section {
+    margin-top: 80px;
+    margin-bottom: 0;
+}
+
+.home-estimate-panel {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 20px;
+    padding: 20px;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 214, 219, 0.16);
+    background: linear-gradient(180deg, rgba(64, 5, 15, 0.72), rgba(120, 11, 28, 0.54));
+    box-shadow: var(--card-shadow);
 }
 
 .teaser-section { padding: var(--space-8) 0; border-bottom: 1px solid rgba(255, 214, 219, 0.12); }
@@ -536,14 +552,17 @@ main { position: relative; width: 100vw; height: 100vh; height: 100dvh; z-index:
 .cta-strip {
     background: linear-gradient(to right, rgba(75, 6, 16, 0.86), rgba(129, 12, 31, 0.78));
     border: 1px solid var(--gold);
-    padding: 50px;
+    padding: 46px;
     text-align: center;
     position: relative;
     overflow: hidden;
-    border-radius: 16px;
+    border-radius: 18px;
     box-shadow: 0 22px 35px rgba(122, 10, 28, 0.24);
 }
 .cta-strip::before { content: none; }
+.cta-strip .section-subtitle {
+    margin-bottom: 12px;
+}
 
 .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(123, 12, 29, 0.72); backdrop-filter: none; z-index: 20000; display: flex; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: 0.4s ease; }
 .modal-overlay.active { opacity: 1; visibility: visible; }
@@ -676,7 +695,10 @@ main { position: relative; width: 100vw; height: 100vh; height: 100dvh; z-index:
     .hero-cta-stack { gap: 8px; margin-bottom: 2px; }
     .section-title { font-size: 2.5rem; }
     .footer-big-title { font-size: 10vw; }
-    .inquiry-funnel { margin-top: var(--space-4); margin-bottom: var(--space-6); padding: var(--space-4); }
+    .home-estimate-section { margin-top: 56px; }
+    .home-estimate-panel { grid-template-columns: 1fr; gap: 14px; padding: 14px; border-radius: 18px; }
+    .cta-strip { padding: 30px 22px; border-radius: 14px; }
+    .inquiry-funnel { padding: 26px 22px; border-radius: 14px; }
     .funnel-steps { grid-template-columns: 1fr; gap: var(--space-2); margin-bottom: var(--space-4); }
     .funnel-step { font-size: 0.85rem; padding: var(--space-3); }
     .funnel-actions .btn { width: 100%; text-align: center; justify-content: center; }
@@ -726,7 +748,9 @@ main { position: relative; width: 100vw; height: 100vh; height: 100dvh; z-index:
     .calc-summary-head h4 { font-size: 1.8rem; }
     .calc-summary-chip, .calc-break-item { align-items: flex-start; flex-direction: column; }
     .calc-summary-chip strong, .calc-break-item strong { text-align: left; white-space: normal; }
+    .calc-nav { flex-direction: column-reverse; align-items: stretch; }
     .calc-form-actions .btn, .calc-nav-btn { width: 100%; min-width: 0; }
+    .calc-nav-btn { display: flex; align-items: center; justify-content: center; text-align: center; }
     .calc-form-grid { grid-template-columns: 1fr; }
     .calc-villa-stepper { flex-direction: column; align-items: flex-start; }
     .calc-summary-breakdown { max-height: none; }
@@ -742,7 +766,6 @@ main { position: relative; width: 100vw; height: 100vh; height: 100dvh; z-index:
     .furn-visual { height: 300px; position: relative; top: 0; order: -1; }
     .footer-grid { text-align: center; }
     .f-col { margin-bottom: 20px; }
-    .cta-strip { padding: 36px 24px; border-radius: 12px; }
     .sticky-inquiry {
         right: 12px;
         left: 12px;

@@ -316,6 +316,10 @@ function formatMoney(value) {
     return moneyFormatter.format(Math.round(value || 0));
 }
 
+function formatMoneyOnwards(value) {
+    return `${formatMoney(value)} onwards`;
+}
+
 function escapeHtml(value) {
     return String(value || '')
         .replace(/&/g, '&amp;')
@@ -519,7 +523,7 @@ function renderEstimatorSummary() {
     const breakdownEl = document.getElementById('calcSummaryBreakdown');
     if (!totalEl || !metaEl || !breakdownEl) return;
 
-    totalEl.textContent = formatMoney(summary.total);
+    totalEl.textContent = formatMoneyOnwards(summary.total);
     const bedroomCount = getBedroomCount() || (interiorEstimatorState.propertyType === 'Villa' ? interiorEstimatorState.villaBedrooms : 0);
     const propertySelected = Boolean(interiorEstimatorState.propertyType);
     const plySelected = Boolean(interiorEstimatorState.plyType);
@@ -533,7 +537,7 @@ function renderEstimatorSummary() {
         <div class="calc-break-group">
             <h5>${section.title}</h5>
             <div class="calc-break-items">
-                ${section.items.map((item) => `<div class="calc-break-item"><span>✓ ${item.label}</span><strong>${formatMoney(item.price)}</strong></div>`).join('')}
+                ${section.items.map((item) => `<div class="calc-break-item"><span>✓ ${item.label}</span><strong>${formatMoneyOnwards(item.price)}</strong></div>`).join('')}
             </div>
         </div>
     `).join('') : '<p class="calc-empty">Choose your property type, ply, and room selections to see the live estimate.</p>';
@@ -557,7 +561,7 @@ function renderEstimatorStepContent() {
                         ? selectedIds.has(item.id)
                         : false;
                 const cardTitle = item.label || item.title || item.id;
-                const cardSub = item.sub || (typeof item.price === 'number' ? `${formatMoney(item.price)} commercial` : '') || (item.bedrooms ? `${item.bedrooms} Bedrooms` : '');
+                const cardSub = item.sub || (typeof item.price === 'number' ? formatMoneyOnwards(item.price) : '') || (item.bedrooms ? `${item.bedrooms} Bedrooms` : '');
                 return `
                     <button type="button" class="calc-card-choice ${isSelected ? 'selected' : ''}" onclick="${clickHandler}('${item.id}')">
                         <span class="calc-card-icon"><i class="${item.icon || 'fa-solid fa-circle-dot'}"></i></span>
@@ -610,7 +614,7 @@ function renderEstimatorStepContent() {
                             <button type="button" class="calc-card-choice ${bedroomBucket.has(item.id) ? 'selected' : ''}" onclick="toggleBedroomItem(${bedroomIndex}, '${item.id}')">
                                 <span class="calc-card-icon"><i class="fa-solid fa-check"></i></span>
                                 <span class="calc-card-title">${item.label}</span>
-                                <span class="calc-card-sub">${formatMoney(item.price)} commercial</span>
+                                <span class="calc-card-sub">${formatMoneyOnwards(item.price)}</span>
                             </button>
                         `).join('')}
                     </div>
@@ -628,7 +632,7 @@ function renderEstimatorStepContent() {
             ${interiorEstimatorState.kitchenFinish ? `
                 <div class="calc-room-group">
                     <div class="calc-room-header"><i class="fa-solid fa-boxes-stacked"></i><h4>Hardware</h4></div>
-                ${cardMarkup(Object.keys(INTERIOR_ESTIMATOR_DATA.kitchen[interiorEstimatorState.kitchenFinish]).map((hardware) => ({ id: hardware, label: `${hardware}`, icon: 'fa-solid fa-sliders', sub: formatMoney(INTERIOR_ESTIMATOR_DATA.kitchen[interiorEstimatorState.kitchenFinish][hardware]) + ' commercial' })), interiorEstimatorState.kitchenHardware, 'selectKitchenHardware')}
+                ${cardMarkup(Object.keys(INTERIOR_ESTIMATOR_DATA.kitchen[interiorEstimatorState.kitchenFinish]).map((hardware) => ({ id: hardware, label: `${hardware}`, icon: 'fa-solid fa-sliders', sub: formatMoneyOnwards(INTERIOR_ESTIMATOR_DATA.kitchen[interiorEstimatorState.kitchenFinish][hardware]) })), interiorEstimatorState.kitchenHardware, 'selectKitchenHardware')}
                 </div>
             ` : '<p class="calc-legend">Select a kitchen finish first to unlock hardware pricing.</p>'}
         `;
@@ -764,11 +768,11 @@ function submitEstimatorLead(action) {
     summary.sections.forEach((section) => {
         lines.push(section.title);
         section.items.forEach((item) => {
-            lines.push(`- ${item.label}: ${formatMoney(item.price)}`);
+            lines.push(`- ${item.label}: ${formatMoneyOnwards(item.price)}`);
         });
     });
     lines.push('');
-    lines.push(`*Estimated Total:* ${formatMoney(summary.total)}`);
+    lines.push(`*Estimated Total:* ${formatMoneyOnwards(summary.total)}`);
 
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=` + encodeURIComponent(lines.join('\n'));
     window.open(url, '_blank', 'noopener');
@@ -839,11 +843,11 @@ function calculateFurniturePrice() {
     let materialVariance = 0; if(selectedFurnMat.includes('Leather') || selectedFurnMat.includes('Marble') || selectedFurnMat.includes('Onyx') || selectedFurnMat.includes('PU')) { materialVariance = 15000; }
     let finalPrice = (base + materialVariance) * multiplier; let formatter = new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumSignificantDigits: 3 });
     
-    let msg = `Hello, I am interested in a Furniture Piece.\n\n*Furniture Inquiry*\nItem: ${selectedFurnType}\nMaterial: ${selectedFurnMat}\nFinish: ${selectedFurnTier}\n\n*Est. Cost:* ${formatter.format(finalPrice)}`;
+    let msg = `Hello, I am interested in a Furniture Piece.\n\n*Furniture Inquiry*\nItem: ${selectedFurnType}\nMaterial: ${selectedFurnMat}\nFinish: ${selectedFurnTier}\n\n*Est. Cost:* ${formatter.format(finalPrice)} onwards`;
     let url = `https://wa.me/${WHATSAPP_NUMBER}?text=` + encodeURIComponent(msg);
     document.getElementById('modal-whatsapp-btn').href = url;
 
-    showResultModal(formatter.format(finalPrice), "ESTIMATED ITEM COST");
+    showResultModal(`${formatter.format(finalPrice)} onwards`, "ESTIMATED ITEM COST");
 }
 
 // Custom cursor disabled for smoother performance.
