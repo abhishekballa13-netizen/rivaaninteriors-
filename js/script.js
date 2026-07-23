@@ -25,10 +25,9 @@ function openWCUPage(id) {
     } 
 }
 
-function openProjectPage(title, loc, type, year, style, desc, imgSrc) { 
+function openProjectPage(title, type, year, style, desc, imgSrc) { 
     document.getElementById('pv-title').innerText = title; 
     document.getElementById('pv-sub').innerText = type; 
-    document.getElementById('pv-loc').innerText = loc; 
     document.getElementById('pv-year').innerText = year; 
     document.getElementById('pv-type').innerText = type; 
     document.getElementById('pv-style').innerText = style; 
@@ -343,6 +342,14 @@ function getPlyMultiplier() {
     return interiorEstimatorState.plyType === 'Marine Ply' ? 1.2 : 1;
 }
 
+function getAdjustedPrice(value) {
+    return Math.round((value || 0) * getPlyMultiplier());
+}
+
+function formatOnwardsWithPly(value) {
+    return formatMoneyOnwards(getAdjustedPrice(value));
+}
+
 function getBedroomBucket(index) {
     if (!interiorEstimatorState.bedrooms[index]) {
         interiorEstimatorState.bedrooms[index] = new Set();
@@ -561,7 +568,7 @@ function renderEstimatorStepContent() {
                         ? selectedIds.has(item.id)
                         : false;
                 const cardTitle = item.label || item.title || item.id;
-                const cardSub = item.sub || (typeof item.price === 'number' ? formatMoneyOnwards(item.price) : '') || (item.bedrooms ? `${item.bedrooms} Bedrooms` : '');
+                const cardSub = item.sub || (typeof item.price === 'number' ? formatOnwardsWithPly(item.price) : '') || (item.bedrooms ? `${item.bedrooms} Bedrooms` : '');
                 return `
                     <button type="button" class="calc-card-choice ${isSelected ? 'selected' : ''}" onclick="${clickHandler}('${item.id}')">
                         <span class="calc-card-icon"><i class="${item.icon || 'fa-solid fa-circle-dot'}"></i></span>
@@ -614,7 +621,7 @@ function renderEstimatorStepContent() {
                             <button type="button" class="calc-card-choice ${bedroomBucket.has(item.id) ? 'selected' : ''}" onclick="toggleBedroomItem(${bedroomIndex}, '${item.id}')">
                                 <span class="calc-card-icon"><i class="fa-solid fa-check"></i></span>
                                 <span class="calc-card-title">${item.label}</span>
-                                <span class="calc-card-sub">${formatMoneyOnwards(item.price)}</span>
+                                <span class="calc-card-sub">${formatOnwardsWithPly(item.price)}</span>
                             </button>
                         `).join('')}
                     </div>
@@ -632,7 +639,7 @@ function renderEstimatorStepContent() {
             ${interiorEstimatorState.kitchenFinish ? `
                 <div class="calc-room-group">
                     <div class="calc-room-header"><i class="fa-solid fa-boxes-stacked"></i><h4>Hardware</h4></div>
-                ${cardMarkup(Object.keys(INTERIOR_ESTIMATOR_DATA.kitchen[interiorEstimatorState.kitchenFinish]).map((hardware) => ({ id: hardware, label: `${hardware}`, icon: 'fa-solid fa-sliders', sub: formatMoneyOnwards(INTERIOR_ESTIMATOR_DATA.kitchen[interiorEstimatorState.kitchenFinish][hardware]) })), interiorEstimatorState.kitchenHardware, 'selectKitchenHardware')}
+                ${cardMarkup(Object.keys(INTERIOR_ESTIMATOR_DATA.kitchen[interiorEstimatorState.kitchenFinish]).map((hardware) => ({ id: hardware, label: `${hardware}`, icon: 'fa-solid fa-sliders', sub: formatOnwardsWithPly(INTERIOR_ESTIMATOR_DATA.kitchen[interiorEstimatorState.kitchenFinish][hardware]) })), interiorEstimatorState.kitchenHardware, 'selectKitchenHardware')}
                 </div>
             ` : '<p class="calc-legend">Select a kitchen finish first to unlock hardware pricing.</p>'}
         `;
