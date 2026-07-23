@@ -44,12 +44,24 @@
 </header>
 
 <div class="mobile-menu-overlay" id="mobileMenu">
-    <a href="#home" class="mobile-link" onclick="mobileLinkClick('home'); return false;">Home</a>
-    <a href="#about" class="mobile-link" onclick="mobileLinkClick('about'); return false;">About Us</a>
-    <a href="#services" class="mobile-link" onclick="mobileLinkClick('services'); return false;">Expertise</a>
-    <a href="#projects" class="mobile-link" onclick="mobileLinkClick('projects'); return false;">Portfolio</a>
-    <a href="#calculator" class="mobile-link" onclick="mobileLinkClick('calculator'); return false;">Estimate</a>
-    <a href="#contact" class="mobile-link" onclick="mobileLinkClick('contact'); return false;">Contact</a>
+    <button type="button" class="mobile-menu-close" onclick="toggleMobileMenu()" aria-label="Close navigation menu">&times;</button>
+    <div class="mobile-menu-brand">
+        <span class="section-subtitle">Navigation</span>
+        <h2>Rivaan Interiors</h2>
+        <p>Calm luxury, delivered in every room.</p>
+    </div>
+    <nav class="mobile-menu-links" aria-label="Mobile navigation">
+        <a href="#home" class="mobile-link" onclick="mobileLinkClick('home'); return false;"><span class="mobile-link-index">01</span><span class="mobile-link-label">Home</span></a>
+        <a href="#about" class="mobile-link" onclick="mobileLinkClick('about'); return false;"><span class="mobile-link-index">02</span><span class="mobile-link-label">About Us</span></a>
+        <a href="#services" class="mobile-link" onclick="mobileLinkClick('services'); return false;"><span class="mobile-link-index">03</span><span class="mobile-link-label">Expertise</span></a>
+        <a href="#projects" class="mobile-link" onclick="mobileLinkClick('projects'); return false;"><span class="mobile-link-index">04</span><span class="mobile-link-label">Portfolio</span></a>
+        <a href="#calculator" class="mobile-link" onclick="mobileLinkClick('calculator'); return false;"><span class="mobile-link-index">05</span><span class="mobile-link-label">Estimate</span></a>
+        <a href="#contact" class="mobile-link" onclick="mobileLinkClick('contact'); return false;"><span class="mobile-link-index">06</span><span class="mobile-link-label">Contact</span></a>
+    </nav>
+    <div class="mobile-menu-footer">
+        <span>Ready to begin?</span>
+        <a href="tel:+919821313487">Call now</a>
+    </div>
 </div>
 
 <main>

@@ -942,6 +942,7 @@ const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
 function setMobileMenuState(isOpen) {
     mobileMenu.classList.toggle('open', isOpen);
     mobileMenu.setAttribute('aria-hidden', String(!isOpen));
+    document.body.classList.toggle('mobile-menu-open', isOpen);
     if (mobileMenuToggle) {
         mobileMenuToggle.setAttribute('aria-expanded', String(isOpen));
         mobileMenuToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
